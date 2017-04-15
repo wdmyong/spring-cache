@@ -1,5 +1,9 @@
 package com.wdm.enums;
 
+/*
+ * @author wdmyong
+ * 20170415
+ */
 public enum Code {
 
     SUCCESS(200, "成功");

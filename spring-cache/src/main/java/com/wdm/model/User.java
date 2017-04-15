@@ -1,5 +1,11 @@
 package com.wdm.model;
 
+import java.util.Date;
+
+/*
+ * @author wdmyong
+ * 20170415
+ */
 public class User {
 
     private int id;
@@ -7,6 +13,8 @@ public class User {
     private String account;
     private String passwd;
     private String mobile;
+    private Date createTime;
+    private Date modifyTime;
 
     public int getId() {
         return id;
@@ -37,5 +45,17 @@ public class User {
     }
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+    public Date getCreateTime() {
+        return createTime;
+    }
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

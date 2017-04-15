@@ -2,6 +2,10 @@ package com.wdm.controller.vo;
 
 import com.wdm.enums.Code;
 
+/*
+ * @author wdmyong
+ * 20170415
+ */
 public class Response {
 
     private int code;

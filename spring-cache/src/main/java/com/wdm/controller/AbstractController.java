@@ -9,6 +9,10 @@ import com.wdm.controller.vo.Response;
 import com.wdm.enums.Code;
 import com.wdm.service.UserService;
 
+/*
+ * @author wdmyong
+ * 20170415
+ */
 public class AbstractController {
 
     @Resource
