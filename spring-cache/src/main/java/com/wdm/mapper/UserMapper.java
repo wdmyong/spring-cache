@@ -31,7 +31,7 @@ public interface UserMapper {
             + "(#{name}, #{account}, #{passwd}, #{mobile}, #{createTime}, #{modifyTime})")
     public void insert(User user);
 
-    @Update("UPDATE user SET name = #{name}, mobile = #{mobile}, modify_time = #{modifyTime} "
-            + "WHERE id = #{id}")
+    @Update("UPDATE user SET name = #{name}, mobile = #{mobile}, passwd = #{passwd}, "
+            + "modify_time = #{modifyTime} WHERE id = #{id}")
     public void update(User user);
 }

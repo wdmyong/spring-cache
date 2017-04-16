@@ -1,18 +1,24 @@
 package com.wdm.model;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /*
  * @author wdmyong
  * 20170415
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int id;
     private String name;
     private String account;
     private String passwd;
     private String mobile;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
     private Date modifyTime;
 

@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import com.wdm.controller.vo.Response;
 import com.wdm.enums.Code;
 import com.wdm.service.UserService;
+import com.wdm.service.RedisService;
 
 /*
  * @author wdmyong
@@ -17,6 +18,9 @@ public class AbstractController {
 
     @Resource
     protected UserService userService;
+
+    @Resource
+    protected RedisService redisService;
 
     protected Response success() {
         Response response = new Response();
