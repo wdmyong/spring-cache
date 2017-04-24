@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+<configuration scan="true">
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{30}.%method - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <File>${LOG_DIR}/my.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>
+                <fileNamePattern>${LOG_DIR}/history/%d{yyyy-MM,aux}/my.log_%d</fileNamePattern>
+            </fileNamePattern>
+            <maxHistory>90</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d [%thread] %-5level %logger{68} %line - logId[[%X{client}][%X{request_id}]] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FLUME" class="com.wdm.utils.FlumeAppender">
+        <hostname>127.0.0.1</hostname>
+        <port>10020</port>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg</pattern>
+        </encoder>
+    </appender>
+    <appender name="UDP" class="com.wdm.utils.UdpAppender">
+        <syslogHost>127.0.0.1</syslogHost>
+        <port>10030</port>
+        <facility>LOCAL1</facility>
+        <sendPort>${port}</sendPort>
+        <suffixPattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg</suffixPattern>
+    </appender>
+    <root>
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="APPENDER" />
+    </root>
+
+</configuration>

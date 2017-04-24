@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 /*
  * @author wdmyong
- * 20170415
+ * 20170416
  */
 public class User implements Serializable {
 
