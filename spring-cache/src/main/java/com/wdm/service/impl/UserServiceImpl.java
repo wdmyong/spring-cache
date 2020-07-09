@@ -1,7 +1,5 @@
 package com.wdm.service.impl;
 
-import java.util.Date;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -27,15 +25,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void insert(User user) {
-        Date now = new Date();
+        long now = System.currentTimeMillis();
         user.setCreateTime(now);
-        user.setModifyTime(now);
+        user.setUpdateTime(now);
         userDao.insert(user);
     }
 
     @Override
     public void update(User user) {
-        user.setModifyTime(new Date());
+        user.setUpdateTime(System.currentTimeMillis());
         userDao.update(user);
     }
 

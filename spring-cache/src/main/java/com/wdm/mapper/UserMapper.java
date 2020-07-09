@@ -20,18 +20,19 @@ public interface UserMapper {
         @Result(property = "id", column = "id"),
         @Result(property = "name", column = "name"),
         @Result(property = "account", column = "account"),
-        @Result(property = "passwd", column = "passwd"),
+        @Result(property = "password", column = "password"),
         @Result(property = "mobile", column = "mobile"),
+        @Result(property = "status", column = "status"),
         @Result(property = "createTime", column = "create_time"),
-        @Result(property = "modifyTime", column = "modify_time")
+        @Result(property = "updateTime", column = "update_time")
     })
     public User getById(@Param("id") Integer id);
 
-    @Insert("INSERT INTO user (name, account, passwd, mobile, create_time, modify_time) VALUES "
-            + "(#{name}, #{account}, #{passwd}, #{mobile}, #{createTime}, #{modifyTime})")
+    @Insert("INSERT INTO user (name, account, password, mobile, status, create_time, update_time) VALUES "
+            + "(#{name}, #{account}, #{password}, #{mobile}, #{status}, #{createTime}, #{updateTime})")
     public void insert(User user);
 
-    @Update("UPDATE user SET name = #{name}, mobile = #{mobile}, passwd = #{passwd}, "
-            + "modify_time = #{modifyTime} WHERE id = #{id}")
+    @Update("UPDATE user SET name = #{name}, mobile = #{mobile}, password = #{password}, status = #{status}, "
+            + "update_time = #{updateTime} WHERE id = #{id}")
     public void update(User user);
 }

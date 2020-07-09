@@ -24,7 +24,7 @@ public class UserController extends AbstractController {
     @Resource
     DruidDataSource myDataSource;
 
-    @RequestMapping("json")
+    @RequestMapping("/json")
     public Response json() throws SQLException {
         Response response = success();
         response.setData(geneData("v", myDataSource.getConnection()));

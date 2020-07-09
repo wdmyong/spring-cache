@@ -1,9 +1,6 @@
 package com.wdm.model;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 /*
  * @author wdmyong
@@ -16,52 +13,72 @@ public class User implements Serializable {
     private int id;
     private String name;
     private String account;
-    private String passwd;
+    private String password;
     private String mobile;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createTime;
-    private Date modifyTime;
+    private int status;
+    private long createTime;
+    private long updateTime;
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getAccount() {
         return account;
     }
     public void setAccount(String account) {
         this.account = account;
     }
-    public String getPasswd() {
-        return passwd;
+
+    public String getPassword() {
+        return password;
     }
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
+
     public String getMobile() {
         return mobile;
     }
+
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-    public Date getCreateTime() {
+
+    public long getCreateTime() {
         return createTime;
     }
-    public void setCreateTime(Date createTime) {
+
+    public void setCreateTime(long createTime) {
         this.createTime = createTime;
     }
-    public Date getModifyTime() {
-        return modifyTime;
+
+    public int getStatus() {
+        return status;
     }
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public long getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(long updateTime) {
+        this.updateTime = updateTime;
     }
 }
