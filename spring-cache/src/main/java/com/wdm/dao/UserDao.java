@@ -20,8 +20,12 @@ public class UserDao {
     UserMapper userMapper;
 
     @Cacheable(value = "user_cache_", key = "'id_' + #id")
-    public User getById(Integer id) {
+    public User getById(long id) {
         return userMapper.getById(id);
+    }
+
+    public User getByAccountPassword(String account, String password) {
+        return userMapper.getByAccountPassword(account, password);
     }
 
     public void insert(User user) {

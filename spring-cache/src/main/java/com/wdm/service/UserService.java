@@ -8,9 +8,11 @@ import com.wdm.model.User;
  */
 public interface UserService {
 
-    public User getById(Integer id);
+    User getById(long id);
 
-    public void insert(User user);
+    User getByAccountPassword(String account, String password);
 
-    public void update(User user);
+    void insert(User user);
+
+    void update(User user);
 }

@@ -6,12 +6,17 @@ package com.wdm.enums;
  */
 public enum Code {
 
-    SUCCESS(200, "成功");
+    SUCCESS(200, "成功"),
+    PARAM_INVALID(601, "参数非法"),
+    ACCOUNT_INVALID(602, "账号无效"),
+    PASSWORD_INVALID(603, "密码不正确"),
+    ACCOUNT_OR_PASSWORD_INVALID(604, "账号或密码不正确"),
+    ;
 
     private int code;
     private String msg;
 
-    private Code(int code, String msg) {
+    Code(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

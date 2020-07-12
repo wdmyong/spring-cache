@@ -28,6 +28,12 @@ public class AbstractController {
         return response;
     }
 
+    protected Response errorResponse(Code code) {
+        Response response = new Response();
+        response.setCode(code);
+        return response;
+    }
+
     protected Map<String, Object> geneData(String key, Object object) {
         Map<String, Object> map = new HashMap<>();
         map.put(key, object);

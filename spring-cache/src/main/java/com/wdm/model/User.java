@@ -2,6 +2,9 @@ package com.wdm.model;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /*
  * @author wdmyong
  * 20170416
@@ -10,7 +13,7 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private long id;
     private String name;
     private String account;
     private String password;
@@ -19,11 +22,11 @@ public class User implements Serializable {
     private long createTime;
     private long updateTime;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -80,5 +83,10 @@ public class User implements Serializable {
 
     public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

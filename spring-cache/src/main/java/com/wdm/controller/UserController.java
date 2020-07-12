@@ -4,6 +4,8 @@ import java.sql.SQLException;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,8 @@ import com.wdm.model.User;
 @RequestMapping("/user")
 public class UserController extends AbstractController {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Resource
     DruidDataSource myDataSource;
 
@@ -34,7 +38,8 @@ public class UserController extends AbstractController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Response get(@PathVariable("id") Integer id) {
         Response response = success();
-        response.setData(geneData("user", userService.getById(id)));
+        User user = userService.getById(id);
+        response.setData(geneData("user", user));
         return response;
     }
 
@@ -42,6 +47,7 @@ public class UserController extends AbstractController {
     public Response insert(User user) {
         Response response = success();
         userService.insert(user);
+        logger.info("insert user:{}", user);
         response.setData(geneData("user", user));
         return response;
     }
